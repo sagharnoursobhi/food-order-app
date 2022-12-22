@@ -2,6 +2,7 @@ import classes from './mealItemForm.module.css';
 import Input from '../../UI/Input';
 
 export default function MealItemForm(props) {
+
     return(
         <form action="" className={classes.form}>
             <Input label="Amount" input={{
