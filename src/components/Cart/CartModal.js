@@ -1,22 +1,30 @@
-
 import classes from './cart.module.css';
 import Modal from '../UI/Modal';
+import { useContext } from 'react';
+import CartContext from '../../store/CartContext';
 
 export default function Cart({ hideCard }) {
-    const cartItems = [{id:'c1', name:'Sushi', amount:2, price: 12.99}].map((item,ix) => {
+    const cartCtr = useContext(CartContext);
+
+    const totalAmountValue = `$${cartCtr.totalAmount.toFixed(2)}`;
+
+    const listIsNotEmpty = cartCtr.items.length > 0;
+
+
+    const cartItems = cartCtr.items.map((item,ix) => {
         return <li key={ix}>{item.name}</li>
-    })
+    });
     
     return(
        <Modal hideCard={hideCard}>
             <ul className={classes['cart-items']}>{ cartItems }</ul>
             <div className={classes.total}>
                 <span>Total Amount</span>
-                <span>35.62</span>
+                <span>{ totalAmountValue }</span>
             </div>
             <div className={classes.actions}>
                 <button className={classes['button--alt']} onClick={hideCard}>Close</button>
-                <button className={classes.button}>Order</button>
+                { listIsNotEmpty && <button className={classes.button}>Order</button>}
             </div>
        </Modal>
     )
