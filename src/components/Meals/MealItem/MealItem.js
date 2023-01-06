@@ -16,6 +16,8 @@ export default function MealItem(props) {
             amount: amount,
             price: props.item.price
         })
+
+        console.log(cartCtx.items);
     }
 
     return(
