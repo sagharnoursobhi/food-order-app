@@ -10,6 +10,16 @@
     align-items: center;
     border-radius: 25px;
     font-weight: bold;
+
+    @media (max-width: 540px){
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    @media (max-width: 412px) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
   }
   
   .button:hover,

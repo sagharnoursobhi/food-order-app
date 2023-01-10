@@ -1,4 +1,4 @@
-import classes from './headerCartBtn.module.css';
+import classes from './headerCartBtn.module.scss';
 import CartIcon from '../Cart/CartIcon';
 import { useContext, useState, useEffect } from 'react';
 import CartContext from '../../store/CartContext';
